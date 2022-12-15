@@ -11,15 +11,24 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class CarServiceImp implements CarService {
 
-    @Autowired
     private CarDao carDao;
 
-    @Transactional
+    @Autowired
+    public CarServiceImp(CarDao carDao) {
+        this.carDao = carDao;
+    }
+
     @Override
     public void add(Car car) {
         carDao.add(car);
+    }
+
+    @Override
+    public Car getById(Long id) {
+        return carDao.getById(id);
     }
 
 }

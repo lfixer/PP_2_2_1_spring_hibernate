@@ -6,4 +6,6 @@ import hiber.model.User;
 public interface CarService {
 
     void add(Car car);
+
+    Car getById(Long id);
 }
